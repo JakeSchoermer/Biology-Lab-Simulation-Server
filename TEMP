@@ -1,0 +1,19 @@
+server = http.createServer(function (req, res) {
+	
+	//Get Record
+	funct.get_record(2, function get_record_callback(err, results, fields) {
+		
+		if (err) {
+	    	throw err;
+		}
+		if (results) {
+			result = results[0].DATA; //result = the first element in the results array
+			res.writeHead(200, {'Content-Type': 'text/plain'});
+			res.end(result);
+		}
+		
+	});
+	
+	//res.writeHead(200, {'Content-Type': 'text/plain'});
+	//res.end('test');
+});
